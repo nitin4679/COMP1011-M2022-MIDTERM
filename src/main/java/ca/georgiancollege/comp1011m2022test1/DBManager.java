@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DBManager {
+public class  DBManager {
     /********************** SINGLETON SECTION **************************/
     //step 1- private static instance member variable
     private static DBManager m_instance = null;

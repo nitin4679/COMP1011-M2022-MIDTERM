@@ -39,14 +39,14 @@ public class Student {
 
         }
 
-        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
+        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$";
         Pattern text = Pattern.compile(telephoneRegex);
         Matcher check = text.matcher(telephone);
         Boolean result = check.matches();
         if(result){
-            throw new IllegalArgumentException("Telephone number not valid !!!");
-        }else {
             setTelephone(telephone);
+        }else {
+            throw new IllegalArgumentException("Telephone number not valid !!!");
         }
 
 
@@ -196,17 +196,19 @@ public class Student {
 
     public void setTelephone(String telephone)
     {
-        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
+        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$";
         Pattern text = Pattern.compile(telephoneRegex);
         Matcher check = text.matcher(telephone);
         Boolean result = check.matches();
         if(result){
-            throw new IllegalArgumentException("Telephone number not valid !!!");
-        }else {
             this.telephone = telephone;
+        }else {
+            throw new IllegalArgumentException("Telephone number not valid !!!");
+
         }
     }
 
+    // Created an ArralyList to check province validation
     public ArrayList<String> state(){
         ArrayList<String> provinceList = new ArrayList<String>();
         provinceList.add("AB");
