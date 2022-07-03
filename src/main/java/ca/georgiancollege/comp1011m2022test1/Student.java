@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.util.regex.Pattern.matches;
-
-
+// Private Instance Members
 public class Student {
     private int student;
     private String firstName;
@@ -18,6 +16,8 @@ public class Student {
     private int avgGrade;
     private String major;
 
+
+    // Constructor with validator conditions
     public Student(int student, String firstName, String lastName, String telephone, String address, String province, int avgGrade, String major) {
 
         if(student >= 200034000){
@@ -39,8 +39,8 @@ public class Student {
 
         }
 
-        String haha = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
-        Pattern text = Pattern.compile(haha);
+        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
+        Pattern text = Pattern.compile(telephoneRegex);
         Matcher check = text.matcher(telephone);
         Boolean result = check.matches();
         if(result){
@@ -76,35 +76,44 @@ public class Student {
         if(major.length() > 5){
 
             setMajor(major);
-        }else {
+        }else
+        {
             throw new IllegalArgumentException("Major should be greater than 5 characters !!!");
-
         }
     }
 
 
-    public int getStudent() {
+    // Getters and Setters with Validation conditions
+    public int getStudent()
+    {
         return student;
     }
 
-    public void setStudent(int student) {
-        if(student >= 200034000){
+    public void setStudent(int student)
+    {
+        if(student >= 200034000)
+        {
             this.student = student;
-        }else {
+        }else
+        {
             throw new IllegalArgumentException("Student number should be greater than 200034000!!!");
         }
 
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        if(firstName != ""){
+    public void setFirstName(String firstName)
+    {
+        if(firstName != "")
+        {
 
             this.firstName = firstName;
-        }else {
+        }else
+        {
             throw new IllegalArgumentException("First and Last name can not be smaller than one character!!!");
         }
     }
@@ -185,9 +194,10 @@ public class Student {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
-        String haha = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
-        Pattern text = Pattern.compile(haha);
+    public void setTelephone(String telephone)
+    {
+        String telephoneRegex = "^(?:\\(\\d{3}\\)|\\d{3})[- ]?\\d{3}[- ]?\\d{4}$\n";
+        Pattern text = Pattern.compile(telephoneRegex);
         Matcher check = text.matcher(telephone);
         Boolean result = check.matches();
         if(result){
